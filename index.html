@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PE 인수금융 레이더</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a deal desk's morning sheet for an acquisition-finance banker
+   IDEA the league-table / deal-pipeline board a coverage team pins up each week
+   PICTURE a five-stage deal pipeline board, each live deal a ticket in its stage
+   COLOUR oxford blue band, white panels, magenta for "financing need now"
+   TYPE Red Hat Display for figures + Noto Sans KR for text
+   LAYOUT blue band: finding + 3 figures, pipeline board full width beneath; then targets, PE list, news */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#070f26);--ink:light-dark(#0b1f4b,#e8ecf6);--soft:light-dark(#4a5878,#9aa6c4);--band:light-dark(#0b1f4b,#0d1a3d);--panel:light-dark(#f3f5fa,#0f1c40);--line:light-dark(#dde2ee,#22305a);--hot:#e0115f;--mid:light-dark(#3b63c4,#7f9ef0);--ok:light-dark(#8a94ad,#5d6a8c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip}
+h1,h2,.num{font-family:"Red Hat Display","Noto Sans KR",sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(28px,4.2vw,44px);line-height:1.12;margin:6px 0 10px;text-wrap:balance;font-weight:800}
+h2{font-size:clamp(24px,3vw,32px);line-height:1.1;margin:0 0 6px;font-weight:800}
+a{color:inherit}
+.band{padding-block:clamp(24px,3.5vw,48px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--band);color:#fff;border-bottom:1px solid #ffffff22}
+nav .wrap{display:flex;gap:4px;flex-wrap:wrap;align-items:center;padding:8px max(5vw,16px)}
+nav b{font-family:"Red Hat Display";margin-right:auto;font-size:17px}
+nav a{text-decoration:none;padding:8px 12px;border-radius:8px;font-size:15px;min-height:40px;display:inline-flex;align-items:center}
+nav a:hover,nav a:focus-visible{background:#ffffff1f;outline:none}
+.top{background:var(--band);color:#fff}
+.top .lead{color:#c9d3ec;max-width:68ch;margin:0}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(10em,1fr));gap:12px;margin-top:20px}
+.fg{border-top:1px solid #ffffff40;padding-top:10px}
+.fg .num{font-size:clamp(30px,4vw,42px);font-weight:800;line-height:1}
+.fg .num small{font-size:.5em;font-weight:700;margin-left:2px}
+.fg span{display:block;color:#c9d3ec;font-size:14px;margin-top:4px}
+.fg.hot .num{color:#ff5c94}
+.board{display:grid;grid-template-columns:repeat(5,minmax(220px,1fr));gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;margin-top:22px}
+.col{scroll-snap-align:start;background:#ffffff10;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.col h3{margin:2px 4px 4px;font-size:14px;font-weight:700;color:#c9d3ec;display:flex;justify-content:space-between}
+.tk{background:var(--bg);color:var(--ink);border-radius:9px;padding:10px 11px;border-left:5px solid var(--ok)}
+.tk.h{border-left-color:var(--hot)}.tk.m{border-left-color:var(--mid)}
+.tk b{display:block;font-size:15px;line-height:1.3}
+.tk .who{font-size:13px;color:var(--soft)}
+.tk .amt{font-family:"Red Hat Display";font-weight:700;font-size:14px;white-space:nowrap}
+.tk p{margin:4px 0 0;font-size:13px;line-height:1.45}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:#c9d3ec;margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.sub{color:var(--soft);margin:0 0 18px;max-width:72ch}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.panel h3{margin:0 0 10px;font-size:16px}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rank li{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:10px}
+.rank .r{font-family:"Red Hat Display";font-weight:800;font-size:22px;line-height:1}
+.rank .nm{font-weight:700}
+.rank .why{font-size:14px;color:var(--soft);margin:2px 0 6px}
+.rank .act{font-size:14px;margin:0}
+.rank .sc{font-family:"Red Hat Display";font-weight:800;font-size:20px;text-align:right;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--line);margin:6px 0 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--mid)}
+.rank li.top3 .bar i{background:var(--hot)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:12.5px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);white-space:nowrap}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.risk{border-color:var(--hot);color:var(--hot)}
+.w{display:grid;grid-template-columns:minmax(0,1fr) 2.4em;gap:8px;align-items:center;margin:8px 0}
+.w label{font-size:14px;grid-column:1/-1;margin-bottom:-6px}
+.w output{font-family:"Red Hat Display";font-weight:700;text-align:right}
+input[type=range]{width:100%;accent-color:var(--hot);height:28px}
+input[type=text],input[type=search],textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%}
+textarea{min-height:64px;resize:vertical}
+button{font:inherit;font-size:15px;min-height:44px;padding:8px 14px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tools input[type=search]{flex:1 1 220px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--soft);font-weight:500}
+td.nm{font-weight:700;white-space:nowrap}
+td .memo{font-size:13px;color:var(--soft);margin-top:4px;white-space:pre-wrap}
+.news{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.news li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.news time{font-family:"Red Hat Display";font-weight:700;white-space:nowrap;color:var(--soft)}
+.news a{font-weight:700;text-decoration:none}
+.news a:hover{text-decoration:underline}
+.news p{margin:3px 0 6px;font-size:15px}
+.news .src{font-size:13px;color:var(--soft)}
+.news li.mine time{color:var(--hot)}
+.new{font-size:12px;font-weight:700;color:var(--hot);margin-left:6px}
+.err{background:var(--hot);color:#fff;padding:12px 16px;border-radius:8px}
+.kw{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.kw button{min-height:34px;padding:3px 10px;font-size:14px;border-radius:99px;background:transparent;color:var(--ink);border-color:var(--line)}
+.empty{color:var(--soft);padding:16px 0}
+footer{color:var(--soft);font-size:14px;border-top:1px solid var(--line)}
+.alt{background:var(--panel)}
+@media(max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){table{font-size:13px}th,td{padding:6px 4px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0}.stack td::before{content:attr(data-l);color:var(--soft);font-weight:400;flex:none}.stack td.nm{white-space:normal}.news li{grid-template-columns:minmax(0,1fr);gap:2px}.rank li{grid-template-columns:1.8em minmax(0,1fr) auto}nav b{width:100%}}
+@media(prefers-reduced-motion:no-preference){.bar i{transition:width .4s ease}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>PE 인수금융 레이더</b><a href="#pipeline">딜 파이프라인</a><a href="#targets">잠재 고객</a><a href="#pe">PE 리스트</a><a href="#news">뉴스</a></div></nav>
+
+<header class="top band" id="pipeline"><div class="wrap">
+<p class="lead" id="stamp">데이터 불러오는 중…</p>
+<h1 id="headline">PE 인수금융 레이더</h1>
+<div class="figs" id="figs"></div>
+<div class="board" id="board" tabindex="0" aria-label="딜 파이프라인 보드"></div>
+<div class="legend"><span><i style="background:var(--hot)"></i>지금 금융 기회</span><span><i style="background:var(--mid)"></i>곧 기회</span><span><i style="background:var(--ok)"></i>관찰</span></div>
+</div></header>
+
+<section class="band" id="targets"><div class="wrap">
+<h2>잠재 고객 순위</h2>
+<p class="sub">PE마다 신호를 점수로 매겼습니다. "최근 7일 뉴스 언급"은 매일 자동으로 바뀝니다. 오른쪽 가중치를 바꾸면 순위가 바로 다시 계산됩니다.</p>
+<div class="grid2">
+<ol class="rank" id="rank"></ol>
+<aside class="panel" aria-label="가중치">
+<h3>신호별 가중치</h3>
+<div id="weights"></div>
+<button class="ghost" id="resetW" type="button">기본값으로</button>
+</aside>
+</div>
+</div></section>
+
+<section class="band alt" id="pe"><div class="wrap">
+<h2>PE 리스트</h2>
+<p class="sub">운용사별 펀드 현황과 최근 움직임입니다. 메모와 직접 추가한 PE는 이 브라우저에만 저장됩니다.</p>
+<div class="tools">
+<input type="search" id="peQ" placeholder="운용사·딜 이름 검색" aria-label="PE 검색">
+<button class="ghost" type="button" data-k="all" id="fAll">전체</button>
+<button class="ghost" type="button" data-k="국내" id="fKr">국내</button>
+<button class="ghost" type="button" data-k="글로벌" id="fGl">글로벌</button>
+</div>
+<div class="scroll"><table class="stack"><thead><tr><th>운용사</th><th>구분</th><th>펀드·드라이파우더</th><th>최근 움직임</th><th>7일 기사</th><th>메모</th></tr></thead><tbody id="peBody"></tbody></table></div>
+<div class="grid2" style="margin-top:20px">
+<form class="panel" id="addPe"><h3>PE 추가</h3>
+<input type="text" id="newName" placeholder="운용사 이름" aria-label="운용사 이름" required>
+<textarea id="newNote" placeholder="메모 (담당자, 진행 중인 딜 등)" aria-label="메모" style="margin-top:8px"></textarea>
+<button type="submit" style="margin-top:8px">추가</button></form>
+<form class="panel" id="memoForm"><h3>메모 남기기</h3>
+<input type="text" id="memoWho" placeholder="운용사 이름 그대로" aria-label="메모할 운용사" list="peNames">
+<datalist id="peNames"></datalist>
+<textarea id="memoTxt" placeholder="예: 12/3 미팅, 맘스터치 본입찰 참여 검토 중" aria-label="메모 내용" style="margin-top:8px"></textarea>
+<button type="submit" style="margin-top:8px">저장</button></form>
+</div>
+</div></section>
+
+<section class="band" id="news"><div class="wrap">
+<h2>주요 인수금융 뉴스</h2>
+<p class="sub">매일 아침 7시에 새 기사를 자동으로 모읍니다. 붉은 날짜는 내 키워드가 들어간 기사입니다. 키워드를 등록하면 해당 기사를 강조하거나 그것만 볼 수 있습니다.</p>
+<div class="tools">
+<input type="search" id="nQ" placeholder="기사 검색" aria-label="기사 검색">
+<button class="ghost" type="button" id="mineOnly" aria-pressed="false">내 키워드 기사만</button>
+</div>
+<div class="tools" id="tagBar"></div>
+<form class="tools" id="kwForm"><input type="text" id="kwIn" placeholder="키워드 추가 (예: 리캡)" aria-label="키워드 추가" style="flex:1 1 200px"><button type="submit">추가</button><button class="ghost" type="button" id="kwReset">기본값 복원</button></form>
+<div class="kw" id="kwList"></div>
+<ul class="news" id="newsList"></ul>
+</div></section>
+
+<footer class="band"><div class="wrap">
+<p>뉴스는 매일 자동 수집되고, 딜 단계·PE 신호는 data 폴더의 파일을 고치면 바뀝니다. 점수는 공개 보도를 바탕으로 한 참고용 판단이며, 딜 규모는 언론에 거론된 수치입니다. 메모와 키워드는 보는 사람 각자의 브라우저에만 저장됩니다.</p>
+</div></footer>
+
+<script>
+{
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\//i.test(u||'')?u:'#';
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const $=id=>document.getElementById(id);
+const DEF_KW=['인수금융','리캡','공개매수','브릿지'];
+let SIG=[],PE=[],DEALS=[],STAGES=[],NEWS=[],W={},cnt7={};
+let memos=store.get('memos',{}),added=store.get('added',[]),kws=store.get('kws',DEF_KW);
+let peKind='all',tag='전체',mine=false,today='';
+const NEWS_SIG={key:'news',label:'최근 7일 뉴스 언급',weight:1};
+
+const allPE=()=>PE.concat(added.map(a=>({name:a.n,kind:'직접 추가',fund:'—',recent:'',signals:{},action:'',user:1,note:a.note})));
+const sig=p=>Object.assign({},p.signals,{news:cnt7[p.name]?1:0});
+const score=p=>{const s=sig(p);return SIG.reduce((t,x)=>t+(s[x.key]?W[x.key]:0),0)};
+const daysAgo=(d,n)=>{const t=new Date(d+'T00:00:00+09:00'),r=new Date(today+'T00:00:00+09:00');return (r-t)/864e5<n};
+
+function figs(){
+  const live=DEALS.filter(d=>d.heat==='h').length,wk=NEWS.filter(n=>daysAgo(n.date,7)).length;
+  $('figs').innerHTML=[['hot',live,'건','지금 금융 기회가 있는 딜'],['',DEALS.length,'건','추적 중인 딜'],['',wk,'건','최근 7일 기사'],['',PE.length,'곳','추적 중인 PE']]
+   .map(f=>`<div class="fg ${f[0]}"><div class="num">${f[1]}<small>${f[2]}</small></div><span>${f[3]}</span></div>`).join('');
+}
+function board(){
+  $('board').innerHTML=STAGES.map((st,i)=>{const ds=DEALS.filter(d=>d.stage===i);
+    return `<div class="col"><h3><span>${esc(st)}</span><span>${ds.length}</span></h3>${ds.map(d=>`<div class="tk ${esc(d.heat)}"><b>${esc(d.name)}</b><div class="who">${esc(d.parties)}</div><div class="amt">${esc(d.size)}</div><p>${esc(d.note)}</p></div>`).join('')}</div>`}).join('');
+}
+function weights(){
+  $('weights').innerHTML=SIG.map(x=>`<div class="w"><label for="w-${x.key}">${esc(x.label)}</label><input type="range" id="w-${x.key}" min="-5" max="5" step="1" value="${W[x.key]}" data-k="${x.key}"><output id="o-${x.key}">${W[x.key]}</output></div>`).join('');
+}
+function rank(){
+  const list=PE.map(p=>({p,v:score(p)})).sort((a,b)=>b.v-a.v).slice(0,10);
+  const max=Math.max(1,...list.map(x=>x.v));
+  $('rank').innerHTML=list.map((x,i)=>{const s=sig(x.p);return `<li class="${i<3?'top3':''}"><span class="r">${i+1}</span><div><div class="nm">${esc(x.p.name)}</div><div class="why">${esc(x.p.recent)}</div><div class="chips">${SIG.filter(g=>s[g.key]).map(g=>`<span class="chip ${g.key==='risk'?'risk':''}">${esc(g.key==='news'?`최근 7일 기사 ${cnt7[x.p.name]}건`:g.label)}</span>`).join('')}</div><div class="bar"><i style="width:${Math.max(0,x.v)/max*100}%"></i></div><p class="act">다음 액션: ${esc(x.p.action)}</p></div><span class="sc">${x.v}</span></li>`}).join('');
+}
+function peTable(){
+  const q=$('peQ').value.trim().toLowerCase();
+  const rows=allPE().filter(p=>(peKind==='all'||p.kind===peKind)&&(!q||(p.name+p.recent+p.fund).toLowerCase().includes(q)));
+  ['fAll','fKr','fGl'].forEach(id=>$(id).classList.toggle('on',$(id).dataset.k===peKind));
+  $('peBody').innerHTML=rows.length?rows.map(p=>{const memo=memos[p.name]||(p.user?p.note:'');return `<tr><td class="nm" data-l="운용사">${esc(p.name)}</td><td data-l="구분">${esc(p.kind)}</td><td data-l="펀드">${esc(p.fund)}</td><td data-l="최근">${esc(p.recent||'—')}</td><td data-l="7일 기사">${cnt7[p.name]||0}</td><td data-l="메모">${memo?`<div class="memo">${esc(memo)}</div>`:'—'}</td></tr>`}).join(''):`<tr><td colspan="6" class="empty">검색 결과가 없습니다.</td></tr>`;
+  $('peNames').innerHTML=allPE().map(p=>`<option value="${esc(p.name)}">`).join('');
+}
+function news(){
+  const tags=['전체',...new Set(NEWS.flatMap(n=>n.tags||[]))];
+  $('tagBar').innerHTML=tags.map(t=>`<button type="button" class="ghost chip ${t===tag?'on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('');
+  $('kwList').innerHTML=kws.length?kws.map((k,i)=>`<button type="button" data-i="${i}" aria-label="${esc(k)} 삭제">${esc(k)} ×</button>`).join(''):'<span class="empty">등록한 키워드가 없습니다.</span>';
+  $('mineOnly').classList.toggle('on',mine);$('mineOnly').setAttribute('aria-pressed',mine);
+  const q=$('nQ').value.trim().toLowerCase();
+  const txt=n=>(n.title+' '+(n.summary||'')+' '+(n.tags||[]).join(' ')+' '+(n.pe||[]).join(' ')).toLowerCase();
+  const hit=n=>kws.some(k=>txt(n).includes(k.toLowerCase()));
+  const rows=NEWS.filter(n=>(tag==='전체'||(n.tags||[]).includes(tag))&&(!q||(txt(n)+n.source).toLowerCase().includes(q))&&(!mine||hit(n))).slice(0,150);
+  $('newsList').innerHTML=rows.length?rows.map(n=>`<li class="${hit(n)?'mine':''}"><time datetime="${esc(n.date)}">${esc(String(n.date).slice(5).replace('-','.'))}</time><div><a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener">${esc(n.title)}</a>${n.date===today?'<span class="new">NEW</span>':''}${n.summary?`<p>${esc(n.summary)}</p>`:''}<span class="src">${esc(n.source)} · ${(n.tags||[]).map(esc).join(', ')}${n.pe&&n.pe.length?' · '+n.pe.map(esc).join(', '):''}</span></div></li>`).join(''):'<li class="empty">조건에 맞는 기사가 없습니다.</li>';
+}
+
+$('weights').addEventListener('input',e=>{const k=e.target.dataset.k;if(!k)return;W[k]=+e.target.value;$('o-'+k).textContent=W[k];store.set('w',W);rank()});
+$('resetW').addEventListener('click',()=>{W=Object.fromEntries(SIG.map(x=>[x.key,x.weight]));store.set('w',W);weights();rank()});
+$('peQ').addEventListener('input',peTable);
+['fAll','fKr','fGl'].forEach(id=>$(id).addEventListener('click',e=>{peKind=e.currentTarget.dataset.k;peTable()}));
+$('addPe').addEventListener('submit',e=>{e.preventDefault();const n=$('newName').value.trim();if(!n)return;added.push({n,note:$('newNote').value.trim()});store.set('added',added);$('newName').value='';$('newNote').value='';peTable()});
+$('memoForm').addEventListener('submit',e=>{e.preventDefault();const n=$('memoWho').value.trim();if(!n)return;const t=$('memoTxt').value.trim();if(t)memos[n]=t;else delete memos[n];store.set('memos',memos);$('memoTxt').value='';peTable()});
+$('nQ').addEventListener('input',news);
+$('mineOnly').addEventListener('click',()=>{mine=!mine;news()});
+$('tagBar').addEventListener('click',e=>{const t=e.target.closest('[data-t]');if(!t)return;tag=t.dataset.t;news()});
+$('kwForm').addEventListener('submit',e=>{e.preventDefault();const k=$('kwIn').value.trim();if(k&&!kws.includes(k)){kws.push(k);store.set('kws',kws)}$('kwIn').value='';news()});
+$('kwList').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b)return;kws.splice(+b.dataset.i,1);store.set('kws',kws);news()});
+$('kwReset').addEventListener('click',()=>{kws=DEF_KW.slice();store.set('kws',kws);news()});
+
+const get=p=>fetch(p+'?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(p);return r.json()});
+Promise.all([get('data/pe.json'),get('data/deals.json'),get('data/news.json')]).then(([pe,deals,nw])=>{
+  SIG=pe.signals.concat(NEWS_SIG);PE=pe.items;DEALS=deals.items;STAGES=deals.stages;
+  NEWS=(nw.items||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  today=new Date(Date.now()+9*36e5).toISOString().slice(0,10);
+  W=Object.assign(Object.fromEntries(SIG.map(x=>[x.key,x.weight])),store.get('w',{}));
+  NEWS.filter(n=>daysAgo(n.date,7)).forEach(n=>(n.pe||[]).forEach(p=>cnt7[p]=(cnt7[p]||0)+1));
+  $('headline').textContent=deals.headline||'PE 인수금융 레이더';
+  const u=String(nw.updated_at||'').replace('T',' ').slice(0,16);
+  $('stamp').textContent=`뉴스 자동 업데이트 ${u} · 딜 정리 ${deals.updated||''} 기준 · 공개 보도 기반`;
+  figs();board();weights();rank();peTable();news();
+}).catch(err=>{$('stamp').innerHTML='<span class="err">데이터 파일을 불러오지 못했어요. data 폴더가 함께 올라갔는지 확인해 주세요.</span>';console.error(err)});
+}
+</script>
+</body>
+</html>

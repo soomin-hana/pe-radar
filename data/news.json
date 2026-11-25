@@ -1,0 +1,387 @@
+{
+ "updated_at": "2026-11-25T17:00:00+09:00",
+ "items": [
+  {
+   "date": "2026-11-25",
+   "title": "프리미어파트너스, 한국펀드파트너스 SPA 체결",
+   "summary": "6호 펀드와 공동투자 펀드, 인수금융을 더해 인수 자금을 마련. PTA PE는 약 20% 재투자.",
+   "source": "파이낸셜뉴스",
+   "url": "https://www.fnnews.com/news/202611251648002248",
+   "tags": [
+    "신규 인수"
+   ],
+   "pe": [
+    "프리미어파트너스"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-25",
+   "title": "국민성장펀드 GP 펀드레이징 막바지",
+   "summary": "대신PE 8호 4,000억, 웰투시 6,000억 결성 완료. 스틱은 1조원 규모 결성 눈앞.",
+   "source": "헤럴드경제",
+   "url": "https://biz.heraldcorp.com/article/10949215",
+   "tags": [
+    "펀드레이징"
+   ],
+   "pe": [
+    "웰투시인베스트먼트",
+    "대신PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-25",
+   "title": "고려아연, MBK·영풍 인수 시도 \"약탈적 M&A\" 규정",
+   "summary": "경영권 분쟁이 다시 격화. MBK 관련 거래의 평판 리스크 변수.",
+   "source": "MTN",
+   "url": "https://news.mtn.co.kr/article/2026112513263173486",
+   "tags": [
+    "규제·리스크"
+   ],
+   "pe": [
+    "MBK파트너스"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-24",
+   "title": "한앤컴퍼니, 올해 신규 바이아웃 0건",
+   "summary": "기존 포트폴리오 회수에 집중하고 부동산 운용 법인으로 영역 확장.",
+   "source": "이데일리",
+   "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03903206645649000",
+   "tags": [
+    "매각",
+    "시장 동향"
+   ],
+   "pe": [
+    "한앤컴퍼니"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-23",
+   "title": "MBK, 일본 와콤 1,366억엔 공개매수",
+   "summary": "경영진과 손잡은 비공개화 거래. 일본 미드캡 바이아웃 점유율 36%.",
+   "source": "파이낸셜뉴스",
+   "url": "https://www.fnnews.com/news/202611230847517815",
+   "tags": [
+    "공개매수",
+    "신규 인수"
+   ],
+   "pe": [
+    "MBK파트너스"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-23",
+   "title": "전 VIG 부대표 2인, 인듀어런스캐피탈 설립",
+   "summary": "중소·중견 경영권 거래에 집중할 신생 운용사.",
+   "source": "인베스트조선",
+   "url": "https://www.investchosun.com/site/data/html_dir/2026/11/23/2026112380158.html",
+   "tags": [
+    "시장 동향"
+   ],
+   "pe": [
+    "VIG파트너스",
+    "인듀어런스캐피탈"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-21",
+   "title": "웰투시, 6,000억 3호 블라인드펀드 결성",
+   "summary": "5대 금융지주 계열 자금 유입. 직전 펀드 대비 두 배 이상 규모.",
+   "source": "헤럴드경제",
+   "url": "https://biz.heraldcorp.com/article/10944251",
+   "tags": [
+    "펀드레이징"
+   ],
+   "pe": [
+    "웰투시인베스트먼트"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-19",
+   "title": "한국금융지주, BNP파리바카디프생명 인수 협상",
+   "summary": "인수가 800억~900억원 거론. KDB생명 우협은 약 3개월 만에 종료.",
+   "source": "파이낸셜뉴스",
+   "url": "https://www.fnnews.com/news/202611191726285204",
+   "tags": [
+    "신규 인수"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-19",
+   "title": "PEF 품은 상장사 주가 급락, 인수금융 재구조화 잇따라",
+   "summary": "IMM PE는 한샘 인수금융 약 8,500억 만기를 1년 6개월 연장. 스틱은 롯데에너지머티리얼즈 대주단 교체.",
+   "source": "서울경제",
+   "url": "https://m.sedaily.com/article/20116335",
+   "tags": [
+    "리파이낸싱·리캡"
+   ],
+   "pe": [
+    "IMM PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-18",
+   "title": "스틱인베스트먼트, 내년 조 단위 4호 펀드 추진",
+   "summary": "PE 부문 4년 만의 대형 펀딩. 분사한 크레딧 법인과 일정 조율 필요.",
+   "source": "아시아경제",
+   "url": "https://view.asiae.co.kr/article/2026111816112190857",
+   "tags": [
+    "펀드레이징"
+   ],
+   "pe": [
+    "스틱인베스트먼트"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-18",
+   "title": "의무공개매수제 앞두고 상장사 오너들 매각 타진",
+   "summary": "시행 뒤에는 인수자 부담이 커질 수 있어 사전 매각 문의가 늘어남.",
+   "source": "조선비즈",
+   "url": "https://m.news.nate.com/view/20261121n01406",
+   "tags": [
+    "공개매수",
+    "시장 동향"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-18",
+   "title": "M&A 빅딜 실종 2년째, 기대와 우려 반반",
+   "summary": "1~3분기 완료 거래금액 11조 2,984억원, 전년 동기의 절반 이하.",
+   "source": "이데일리",
+   "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03050406645647032",
+   "tags": [
+    "시장 동향"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-18",
+   "title": "메가커피 측, 해태htb 인수 우선협상대상자",
+   "summary": "지분 100%, 약 3,000억원 거론. 고도파트너스와 2파전.",
+   "source": "브릿지코드",
+   "url": "https://mna.bridgecode.kr/blog/insight/mega-coffee-haitai-strategic-buyer-acquisition",
+   "tags": [
+    "신규 인수"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-16",
+   "title": "연말인데 봄철 같은 M&A 시장",
+   "summary": "넥스플렉스·디앤티·엘리시아 계약 체결. 맘스터치 본입찰은 12월로 연기.",
+   "source": "이데일리",
+   "url": "https://www.edaily.co.kr/News/Read?newsId=01275926645646704",
+   "tags": [
+    "시장 동향",
+    "매각"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-13",
+   "title": "VIG파트너스, 그로스캐피털 전담팀 신설",
+   "summary": "바이아웃 중심에서 성장자본으로 영역 확대.",
+   "source": "조선비즈",
+   "url": "https://m.news.nate.com/view/20261115n01142",
+   "tags": [
+    "시장 동향"
+   ],
+   "pe": [
+    "VIG파트너스"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-12",
+   "title": "넥스플렉스, 인수금융 승인에도 에쿼티 조달 숙제",
+   "summary": "신한·다올·DB 투심 통과. 아이텍 CB 발행 여부가 변수.",
+   "source": "인베스트조선",
+   "url": "https://www.investchosun.com/site/data/html_dir/2026/11/12/2026111280085.html",
+   "tags": [
+    "신규 인수"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-10",
+   "title": "한투증권, 미국 인수금융 합작사 SFCP 정리",
+   "summary": "스티펠과의 합작사 정리, KIS US 중심으로 미국 인수금융 지속.",
+   "source": "이데일리",
+   "url": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04237766645644408",
+   "tags": [
+    "시장 동향"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-06",
+   "title": "공제회들, 내년 상반기 인수금융 기회 주목",
+   "summary": "SK AIDC·가비아 딜 관심. 대형 거래 대출은 내년 초 기표 예상.",
+   "source": "인베스트조선",
+   "url": "https://www.investchosun.com/site/data/html_dir/2026/11/06/2026110680003.html",
+   "tags": [
+    "시장 동향"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-11-05",
+   "title": "이음PE, 디앤티 SPA 체결",
+   "summary": "하일랜드는 약 2년 만에 회수. 동아에스티도 보유 지분 전량 매각, 11/30 종결 예정.",
+   "source": "딜사이트",
+   "url": "https://dealsite.co.kr/articles/172212",
+   "tags": [
+    "신규 인수",
+    "매각"
+   ],
+   "pe": [
+    "이음PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-11-02",
+   "title": "TPG, 롯데렌탈 인수 완료",
+   "summary": "경영권은 에쿼티로, 잔여 지분 공개매수에는 인수금융을 쓰는 구조.",
+   "source": "헤럴드경제",
+   "url": "https://biz.heraldcorp.com/article/10923099",
+   "tags": [
+    "신규 인수",
+    "리파이낸싱·리캡"
+   ],
+   "pe": [
+    "TPG"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-29",
+   "title": "SKT, AIDC 외부 투자 유치 3조 800억원",
+   "summary": "SK호라이즌 구주 매각 1조 9,000억, 신주 1조 2,000억.",
+   "source": "딜사이트",
+   "url": "https://dealsite.co.kr/articles/171566",
+   "tags": [
+    "신규 인수"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-10-28",
+   "title": "맥쿼리, 가비아·KINX 동시 인수 추진",
+   "summary": "가비아 주당 5만 3,000원, KINX 19만원. 얼라인·미리캐피탈 참여.",
+   "source": "SBS Biz",
+   "url": "https://biz.sbs.co.kr/amp/article/20000342687",
+   "tags": [
+    "공개매수",
+    "신규 인수"
+   ],
+   "pe": [
+    "맥쿼리PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-26",
+   "title": "릴슨PE, 첫 블라인드펀드 약 2,000억원",
+   "summary": "군인공제회·산업은행·중기중앙회 GP 선정. 11월 멀티클로징.",
+   "source": "딜사이트",
+   "url": "https://dealsite.co.kr/articles/171196",
+   "tags": [
+    "펀드레이징"
+   ],
+   "pe": [
+    "릴슨PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "title": "맘스터치·버거킹, 몸값 1조 버거 빅딜",
+   "summary": "맘스터치 본입찰 예정, BKR 8,500억~1조원 거론.",
+   "source": "머니투데이",
+   "url": "https://www.mt.co.kr/article/2026102010532640523",
+   "tags": [
+    "매각"
+   ],
+   "pe": [],
+   "auto": false
+  },
+  {
+   "date": "2026-10-20",
+   "title": "VIG파트너스, 1조원 6호 블라인드 시동",
+   "summary": "율곡 인수 추진으로 5호 소진율 연말 약 80% 전망.",
+   "source": "이투데이",
+   "url": "https://www.etoday.co.kr/news/view/2637160",
+   "tags": [
+    "펀드레이징",
+    "신규 인수"
+   ],
+   "pe": [
+    "VIG파트너스"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-17",
+   "title": "우리PE, 2,500억 7호 블라인드 결성 임박",
+   "summary": "6호 드라이파우더 10% 이내로 소진.",
+   "source": "뉴스톱",
+   "url": "https://www.newstopkorea.com/news/articleView.html?idxno=48231",
+   "tags": [
+    "펀드레이징"
+   ],
+   "pe": [
+    "우리PE"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-10-01",
+   "title": "PEF 레버리지 트렌드, 에쿼티 먼저 인수하고 리캡은 나중에",
+   "summary": "웰투시는 인수 1년 뒤 산은·키움 공동주선으로 5,000억 리캡.",
+   "source": "인베스트조선",
+   "url": "https://www.investchosun.com/site/data/html_dir/2026/10/01/2026100180108.html",
+   "tags": [
+    "리파이낸싱·리캡",
+    "시장 동향"
+   ],
+   "pe": [
+    "웰투시인베스트먼트"
+   ],
+   "auto": false
+  },
+  {
+   "date": "2026-09-18",
+   "title": "NH투자증권, 더존비즈온 브릿지론의 장기 인수금융 전환 주관",
+   "summary": "약 1조 5,360억원 규모. 공개매수 주관에서 인수금융으로 이어진 패키지 딜.",
+   "source": "뉴스저널리즘",
+   "url": "https://www.ngetnews.com/news/articleView.html?idxno=553448",
+   "tags": [
+    "리파이낸싱·리캡",
+    "공개매수"
+   ],
+   "pe": [],
+   "auto": false
+  }
+ ]
+}
